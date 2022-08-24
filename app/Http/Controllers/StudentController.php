@@ -17,7 +17,7 @@ class StudentController extends Controller
 
         try {
             $students = Student::all();
-            return response()->json($students);
+            return response()->json(['students' => $students]);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Something went wrong',
