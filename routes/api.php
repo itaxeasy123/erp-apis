@@ -5,7 +5,9 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeworkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\NoticeController;
-
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\SyllabusController;
+use App\Http\Controllers\TransportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
   
@@ -35,6 +37,16 @@ Route::get('/books/issued', [BookController::class, 'issuedBooks'])->name('book.
 
 // NOTICE
 Route::get('/notices', [NoticeController::class, 'index'])->name('notice.index');
+
+// ASSIGNMENTS
+Route::get('/assignments', [AssignmentController::class, 'index'])->name('assignment.index');
+
+
+// SYLLABUS
+Route::get('/syllabus', [SyllabusController::class, 'index'])->name('syllabus.index');
+
+// TRANSPORT 
+Route::get('/transport', [TransportController::class, 'index'])->name('transport.index');
 
 
 

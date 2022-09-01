@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notice;
-use Illuminate\Http\Request;
+use App\Models\Syllabus;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
-class NoticeController extends Controller
+class SyllabusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class NoticeController extends Controller
     public function index()
     {
         try {
-            $notice = Notice::select(DB::raw('id,  CONVERT(created_at, DATE) as created_date ,  CONVERT(updated_at, DATE) as updated_date , title'))->get();
-            return response()->json(['notice' => $notice]);
+            $syllabus = Syllabus::select(DB::raw('id,  CONVERT(created_at, DATE) as created_date ,  CONVERT(updated_at, DATE) as updated_date , title'))->get();
+            return response()->json(['syllabus' => $syllabus]);
         } catch (\Exception $e) {
             return response()->json([
-                'message' => "Something went wrong..."
+                'message' => $e
             ]);
         }
     }
@@ -49,10 +49,10 @@ class NoticeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Syllabus  $syllabus
      * @return \Illuminate\Http\Response
      */
-    public function show(Notice $notice)
+    public function show(Syllabus $syllabus)
     {
         //
     }
@@ -60,10 +60,10 @@ class NoticeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Syllabus  $syllabus
      * @return \Illuminate\Http\Response
      */
-    public function edit(Notice $notice)
+    public function edit(Syllabus $syllabus)
     {
         //
     }
@@ -72,10 +72,10 @@ class NoticeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Syllabus  $syllabus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Notice $notice)
+    public function update(Request $request, Syllabus $syllabus)
     {
         //
     }
@@ -83,10 +83,10 @@ class NoticeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Syllabus  $syllabus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Notice $notice)
+    public function destroy(Syllabus $syllabus)
     {
         //
     }

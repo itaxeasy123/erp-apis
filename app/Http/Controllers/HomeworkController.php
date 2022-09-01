@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Homework;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class HomeworkController extends Controller
@@ -15,7 +16,7 @@ class HomeworkController extends Controller
     public function index()
     {
         try {
-            $homework = Homework::all();
+            $homework = Homework::select(DB::raw('id, CONVERT (created_at, DATE) AS created_date, CONVERT ( updated_at, DATE ) AS updated_date, subject_name, submission, evaluation, CASE STATUS  WHEN 1 THEN "completed" ELSE "incompleted" END AS status, marks'))->get();
             return response()->json(['homework' => $homework]);
         } catch (\Exception $e) {
             return response()->json([

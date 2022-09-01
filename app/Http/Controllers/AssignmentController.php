@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notice;
+use App\Models\Assignment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class NoticeController extends Controller
+class AssignmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class NoticeController extends Controller
     public function index()
     {
         try {
-            $notice = Notice::select(DB::raw('id,  CONVERT(created_at, DATE) as created_date ,  CONVERT(updated_at, DATE) as updated_date , title'))->get();
-            return response()->json(['notice' => $notice]);
+            $assignments = Assignment::select(DB::raw('id,  CONVERT(created_at, DATE) as created_date ,  CONVERT(updated_at, DATE) as updated_date , title'))->get();
+            return response()->json(['assignments' => $assignments]);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => "Something went wrong..."
@@ -49,10 +49,10 @@ class NoticeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function show(Notice $notice)
+    public function show(Assignment $assignment)
     {
         //
     }
@@ -60,10 +60,10 @@ class NoticeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Notice $notice)
+    public function edit(Assignment $assignment)
     {
         //
     }
@@ -72,10 +72,10 @@ class NoticeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Notice $notice)
+    public function update(Request $request, Assignment $assignment)
     {
         //
     }
@@ -83,10 +83,10 @@ class NoticeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Notice  $notice
+     * @param  \App\Models\Assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Notice $notice)
+    public function destroy(Assignment $assignment)
     {
         //
     }
