@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeworkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\SyllabusController;
 use App\Http\Controllers\TransportController;
 use Illuminate\Http\Request;
@@ -47,6 +49,14 @@ Route::get('/syllabus', [SyllabusController::class, 'index'])->name('syllabus.in
 
 // TRANSPORT 
 Route::get('/transport', [TransportController::class, 'index'])->name('transport.index');
+
+
+// SUBJECTS
+Route::get('/subjects', [SubjectController::class, 'index'])->name('subject.index');
+
+// SUBJECTS
+Route::get('/result', [ResultController::class, 'index'])->name('result.index');
+
 
 
 
